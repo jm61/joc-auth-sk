@@ -1,8 +1,8 @@
 import { invalid, redirect } from '@sveltejs/kit'
 import bcrypt from 'bcrypt'
-
 import { db } from '$lib/database'
 
+/** @type {import('./$types').PageServerLoad} */
 export const load = async ({ locals }) => {
 	// redirect to `/` if logged in
 	if (locals.user) {
@@ -10,8 +10,11 @@ export const load = async ({ locals }) => {
 	}
 }
 
+let Roles = { ADMIN: 'ADMIN', USER: 'USER' }
+
+/** @type {import('./$types').Actions} */
 export const actions = {
-	default: async ({ request }) => {
+	register: async ({ request }) => {
 		const data = await request.formData()
 		const username = data.get('username')
 		const password = data.get('password')
@@ -37,6 +40,8 @@ export const actions = {
 			data: {
 				username,
 				passwordHash: await bcrypt.hash(password, 10),
+				userAuthToken: crypto.randomUUID(),
+				role: { connect: { name: Roles.USER } },
 			},
 		})
 

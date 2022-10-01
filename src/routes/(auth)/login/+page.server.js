@@ -2,6 +2,7 @@ import { invalid, redirect } from '@sveltejs/kit'
 import bcrypt from 'bcrypt'
 import { db } from '$lib/database'
 
+/** @type {import('./$types').PageServerLoad} */
 export const load = async ({ locals }) => {
 	// redirect to `/` if logged in
 	if (locals.user) {
@@ -9,8 +10,9 @@ export const load = async ({ locals }) => {
 	}
 }
 
+/** @type {import('./$types').Actions} */
 export const actions = {
-	default: async ({ request, cookies }) => {
+	login: async ({ request, cookies }) => {
 		const data = await request.formData()
 		const username = data.get('username')
 		const password = data.get('password')
@@ -46,8 +48,8 @@ export const actions = {
 			sameSite: 'strict',
 			// only sent over HTTPS in production
 			secure: process.env.NODE_ENV === 'production',
-			// set cookie to expire after a month
-			maxAge: 60 * 60 * 24 * 2,
+			// set cookie to expire after one day
+			maxAge: 60 * 60 * 24 * 1,
 		})
 	},
 }

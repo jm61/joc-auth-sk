@@ -1,13 +1,12 @@
-<script lang="ts">
+<script>
 	import { enhance } from '$app/forms'
-	import type { ActionData } from './$types'
-
-	export let form: ActionData
+	/** @type {import('./$types').PageData} */
+	export let form
 </script>
 
 <h1>Register</h1>
 
-<form method="POST" use:enhance>
+<form method="POST" use:enhance action="?/register">
 	{#if form?.user}
 		<p class="error">Username is taken.</p>
 	{/if}
@@ -21,6 +20,10 @@
 		<label for="password">Password</label>
 		<input id="password" name="password" type="password" required />
 	</div>
+
+	{#if form?.user}
+		<p class="error">Username is taken.</p>
+	{/if}
 
 	<button type="submit">Register</button>
 </form>
