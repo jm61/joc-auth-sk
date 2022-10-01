@@ -1,5 +1,5 @@
 <script>
-	/** @type {Array<name>}*/
+	/** @type {import('./$types').PageData} */
 	export let data
 	const products = data.products
 	const category = data.category
@@ -8,14 +8,18 @@
 </script>
 
 <h1>Products</h1>
-<!-- <pre>{JSON.stringify(data, null, 2)}</pre> -->
+<pre>{JSON.stringify(data, null, 2)}</pre>
 
 <div class="cont">
 	{#each products as product}
 		<div class="card">
 			<h4>{product.name}</h4>
-			Price:<small>{product.price}</small>
-			<em>({product.categoryId})</em>
+			Price:<small>€{product.price}</small>
+			<p>
+				cat:{category
+					.filter((el) => el.id === product.categoryId)
+					.map((el) => el.name)}
+			</p>
 			<hr />
 		</div>
 	{/each}

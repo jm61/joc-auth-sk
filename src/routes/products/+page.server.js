@@ -14,10 +14,11 @@ export const actions = {
 	default: async ({ request }) => {
 		const data = await request.formData()
 		const name = data.get('name')
-		const price = +data.get('price')
-		const quantity = +data.get('quantity')
-		const categoryId = +data.get('categoryId')
+		const price = data.get('price').toString()
+		const quantity = data.get('quantity').toString()
+		const categoryId = data.get('categoryId').toString()
 
+		console.log(...data)
 		await db.product.create({
 			data: {
 				name,

@@ -29,6 +29,23 @@ model Roles {
   User User[]
 }
 
+model Product {
+  id         String   @id @default(uuid())
+  name       String
+  price      String
+  quantity   String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId String
+}
+
+model Category {
+  id      String    @id @default(uuid())
+  name    String    @unique
+  Product Product[]
+}
+
 // Use enums when you change database
 // because SQLite doesn't support it
 // https://www.prisma.io/docs/reference/database-reference/database-features#misc
