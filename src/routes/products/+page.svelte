@@ -7,8 +7,12 @@
 	export let form
 </script>
 
+<svelte:head>
+	<title>Products</title>
+</svelte:head>
+
 <h1>Products</h1>
-<pre>{JSON.stringify(data, null, 2)}</pre>
+<!-- <pre>{JSON.stringify(data, null, 2)}</pre> -->
 
 <div class="cont">
 	{#each products as product}

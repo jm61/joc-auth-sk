@@ -38,20 +38,24 @@ button {
 
 nav {
 	display: flex;
+	margin-bottom: 1rem;
 	gap: 1rem;
-	margin-bottom: 2rem;
+	justify-content: space-around;
+	align-items: center;
 }
 
 a {
 	color: inherit;
+	padding-bottom: .5rem;
 }
 
 nav a {
 	text-decoration: none;
+	border-bottom: 2px solid transparent;
 }
 
 nav a:hover {
-	text-decoration: underline;
+	border-bottom: 2px solid tomato;
 }
 
 .error {
