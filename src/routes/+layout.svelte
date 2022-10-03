@@ -1,24 +1,8 @@
-<style>
-.login {
-	margin-left: auto;
-}
-.register {
-	margin-right: 2rem;
-}
-.logout {
-	margin: 0;
-}
-button {
-	background-color: lightblue;
-	color: rgb(14, 1, 1);
-}
-</style>
-
 <script>
-import { applyAction, enhance } from '$app/forms'
-import { invalidateAll } from '$app/navigation'
-import { page } from '$app/stores'
-import '../styles/app.css'
+	import { applyAction, enhance } from '$app/forms'
+	import { invalidateAll } from '$app/navigation'
+	import { page } from '$app/stores'
+	import '../styles/app.css'
 </script>
 
 <svelte:head>
@@ -30,7 +14,6 @@ import '../styles/app.css'
 	<a href="/movies" data-sveltekit-prefetch>Movies</a>
 	<a href="/shop" data-sveltekit-prefetch>Shopping</a>
 	<a href="/products" data-sveltekit-prefetch>Products</a>
-	<a href="/enhance">Enhance</a>
 	{#if !$page.data.user}
 		<a href="/login" class="login">Login</a>
 		<a href="/register" class="register">Register</a>
@@ -44,12 +27,12 @@ import '../styles/app.css'
 			class="logout"
 			action="/logout"
 			method="POST"
-			use:enhance="{() => {
+			use:enhance={() => {
 				return async ({ result }) => {
 					invalidateAll()
 					await applyAction(result)
 				}
-			}}"
+			}}
 		>
 			<button type="submit">Log out</button>
 		</form>
@@ -59,3 +42,19 @@ import '../styles/app.css'
 <main>
 	<slot />
 </main>
+
+<style>
+	.login {
+		margin-left: auto;
+	}
+	.register {
+		margin-right: 2rem;
+	}
+	.logout {
+		margin: 0;
+	}
+	button {
+		background-color: lightblue;
+		color: rgb(14, 1, 1);
+	}
+</style>

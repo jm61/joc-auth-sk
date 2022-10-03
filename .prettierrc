@@ -5,11 +5,6 @@
 	"trailingComma": "es5",
 	"printWidth": 80,
 	"pluginSearchDirs": ["."],
-	"svelteSortOrder": "options-styles-scripts-markup",
-	"svelteStrictMode": true,
-	"svelteBracketNewLine": false,
-	"svelteAllowShorthand": false,
-	"svelteIndentScriptAndStyle": false,
 	"overrides": [
 		{
 			"files": "*.svelte",

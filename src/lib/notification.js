@@ -11,7 +11,7 @@ const createNotificationStore = () => {
 		})
 	}
 
-	let timers = []
+	//let timers = []
 
 	const notifications = derived(_notifications, ($_notifications, set) => {
 		set($_notifications)

@@ -1,8 +1,8 @@
 <script>
-/** @type {import('./$types').PageData} */
-export let data
-//console.log(data)
-const base_url = 'http://image.tmdb.org/t/p/w185/'
+	/** @type {import('./$types').PageData} */
+	export let data
+	//console.log(data)
+	const base_url = 'http://image.tmdb.org/t/p/w185/'
 </script>
 
 <svelte:head>
@@ -15,7 +15,7 @@ const base_url = 'http://image.tmdb.org/t/p/w185/'
 		<div>
 			<h3>{movie.title}</h3>
 			<p>{movie.overview}</p>
-			<img src="{`${base_url}${movie.poster_path}`}" alt="pic" />
+			<img src={`${base_url}${movie.poster_path}`} alt="pic" />
 		</div>
 	{/each}
 </details>

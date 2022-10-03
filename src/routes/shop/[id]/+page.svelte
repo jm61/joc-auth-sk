@@ -1,8 +1,8 @@
 <script>
-/** @type {import('./$types').PageData} */
-export let data
-const { product } = data
-//console.log(data.product)
+	/** @type {import('./$types').PageData} */
+	export let data
+	const { product } = data
+	//console.log(data.product)
 </script>
 
 <svelte:head>
