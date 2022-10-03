@@ -1,8 +1,8 @@
 <script>
-	import { applyAction, enhance } from '$app/forms'
-	import { invalidateAll } from '$app/navigation'
-	/** @type {import('./$types').PageData} */
-	export let form
+import { applyAction, enhance } from '$app/forms'
+import { invalidateAll } from '$app/navigation'
+/** @type {import('./$types').PageData} */
+export let form
 </script>
 
 <svelte:head>
@@ -14,7 +14,7 @@
 <form
 	method="POST"
 	action="?/login"
-	use:enhance={() => {
+	use:enhance="{() => {
 		return async ({ result }) => {
 			// rerun the `load` function for the page
 			// https://kit.svelte.dev/docs/modules#$app-navigation-invalidateall
@@ -25,7 +25,7 @@
 			// so we can use `applyResult` and pass the `result`
 			await applyAction(result)
 		}
-	}}
+	}}"
 >
 	{#if form?.invalid}
 		<p class="error">Username and password are required.</p>

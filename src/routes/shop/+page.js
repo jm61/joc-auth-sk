@@ -1,7 +1,7 @@
 /** @type {import('./$types').PageLoad} */
 export const load = async ({ fetch }) => {
 	const fetchProducts = async () => {
-		const resProducts = await fetch('https://dummyjson.com/products?limit=5')
+		const resProducts = await fetch('https://dummyjson.com/products?limit=10')
 		const products = await resProducts.json()
 		return products
 	}

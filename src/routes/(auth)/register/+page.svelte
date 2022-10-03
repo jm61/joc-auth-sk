@@ -1,7 +1,7 @@
 <script>
-	import { enhance } from '$app/forms'
-	/** @type {import('./$types').PageData} */
-	export let form
+import { enhance } from '$app/forms'
+/** @type {import('./$types').PageData} */
+export let form
 </script>
 
 <svelte:head>

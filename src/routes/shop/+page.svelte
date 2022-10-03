@@ -1,20 +1,20 @@
 <script>
-	/** @type {import('./$types').PageData} */
-	export let data
-	//console.log(data)
+/** @type {import('./$types').PageData} */
+export let data
+//console.log(data.products)
 </script>
 
 <svelte:head>
 	<title>Shopping</title>
 </svelte:head>
 
-<details>
+<details open>
 	<summary>PRODUCTS</summary>
 	{#each data.products.products as product}
 		<div>
-			<h3>{product.title}</h3>
+			<a href="/shop/{product.id}" data-sveltekit-prefetch
+				><h3>{product.title}</h3></a>
 			<p>{product.description}</p>
-			<img src={product.thumbnail} alt="pic" />
 		</div>
 	{/each}
 </details>
@@ -24,7 +24,7 @@
 		<div>
 			<h3>{user.firstName}</h3>
 			<p>{user.birthDate}</p>
-			<img src={user.image} alt="pic" />
+			<img src="{user.image}" alt="pic" />
 		</div>
 	{/each}
 </details>

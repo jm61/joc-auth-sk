@@ -19,8 +19,9 @@ label {
 }
 
 input,
-button, select {
-	padding: .5rem;
+button,
+select {
+	padding: 0.5rem;
 	font: inherit;
 	color: inherit;
 	background-color: hsl(220 20% 20%);
@@ -46,7 +47,7 @@ nav {
 
 a {
 	color: inherit;
-	padding-bottom: .5rem;
+	padding-bottom: 0.5rem;
 }
 
 nav a {

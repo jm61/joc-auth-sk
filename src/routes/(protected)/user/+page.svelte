@@ -1,6 +1,6 @@
 <script>
-	import { page } from '$app/stores'
-	console.log($page.data.user)
+import { page } from '$app/stores'
+console.log($page.data.user)
 </script>
 
 <svelte:head>
